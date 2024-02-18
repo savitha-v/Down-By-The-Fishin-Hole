@@ -45,8 +45,11 @@ public class Angler {
 	 *                                  moneyUnitsLeft.
 	 */
 	public void payToFish(int moneyUnitsToPay) {
-		if (moneyUnitsToPay < 0 || moneyUnitsToPay > this.moneyUnitsLeft) {
-			throw new IllegalArgumentException("Invalid amount to pay for fishing");
+		if (moneyUnitsToPay < 0) {
+			throw new IllegalArgumentException("Invalid amount to pay for fishing: " + moneyUnitsToPay);
+		}
+		if (moneyUnitsToPay > this.moneyUnitsLeft) {
+			throw new IllegalArgumentException("Not enough money units left to pay for fishing: " + moneyUnitsToPay);
 		}
 		this.moneyUnitsLeft -= moneyUnitsToPay;
 	}
@@ -54,13 +57,12 @@ public class Angler {
 	/**
 	 * Increments the total number of fish caught by the specified amount.
 	 * 
-	 * @param numberOfFishIncrement The number of fish caught and to have to
-	 *                              increment by.
+	 * @param numberOfFishIncrement The number of fish caught.
 	 * @throws IllegalArgumentException if numberOfFishIncrement is negative.
 	 */
 	public void catchFish(int numberOfFishIncrement) {
 		if (numberOfFishIncrement < 0) {
-			throw new IllegalArgumentException("Invalid number of fish caught");
+			throw new IllegalArgumentException("Invalid number of fish caught: " + numberOfFishIncrement);
 		}
 		this.numberOfFishCaught += numberOfFishIncrement;
 	}
