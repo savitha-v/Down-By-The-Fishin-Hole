@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs6312.fishing.model.Angler;
 
 /**
- * Test class for the Angler class. Tests constructor and toString method.
+ * Test class for the Angler class.
  * 
  * @author Savitha Venkatesh
  * @version 02/18/2024
  */
-public class AnglerWhenCreateAngler {
+public class AnglerWhenTestAngler {
 
 	/**
 	 * Test the constructor and toString method for Angler.
