@@ -38,6 +38,11 @@ public class SmallFish extends FishType {
 		return numberOfFishCaught;
 	}
 
+    @Override
+    public int getFishLeft() {
+        return this.getNumberOfFishInSchool();
+    }
+    
 	/**
 	 * Provides a string representation of this SmallFish describing the number of
 	 * small fish in the school.

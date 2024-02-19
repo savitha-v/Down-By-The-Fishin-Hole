@@ -1,6 +1,7 @@
 package edu.westga.cs6312.fishing.view;
 
 import edu.westga.cs6312.fishing.model.GameBoard;
+
 import java.util.Scanner;
 
 /**
@@ -45,7 +46,7 @@ public class FishingTUI {
 				this.move();
 				break;
 			case 5:
-				this.fishFishingHole();
+				this.fishInFishingHole();
 				break;
 			case 9:
 				System.out.println("Thank you for playing!");
@@ -128,5 +129,34 @@ public class FishingTUI {
 		}
 		System.out.println("Moved to new fishing hole:");
 		this.describeCurrentFishingHole();
+	}
+
+	/**
+	 * Handles the logic for fishing in the current fishing hole. It simulates the
+	 * angler paying to fish in the hole and displays the result to the user.
+	 */
+	private void fishInFishingHole() {
+		if (this.currentGameBoard.getCurrentFishingHole().getCurrentFishType() == null) {
+			System.out.println("No fish available to catch at this location.");
+			return;
+		}
+
+		int costToFish = this.currentGameBoard.getCurrentFishingHole().getCurrentFishType().costToFish();
+
+		if (this.currentGameBoard.getAngler().getMoneyUnitsLeft() < costToFish) {
+			System.out.println("You do not have enough money to fish here.");
+			return;
+		}
+
+		this.currentGameBoard.getAngler().payToFish(costToFish);
+
+		int fishCaught = this.currentGameBoard.getCurrentFishingHole().fish();
+
+		if (fishCaught > 0) {
+			System.out.println("The Angler has " + this.currentGameBoard.getAngler().getMoneyUnitsLeft()
+					+ " money remaining and caught " + fishCaught + " fish.");
+		} else {
+			System.out.println("No fish caught in this fishing hole.");
+		}
 	}
 }

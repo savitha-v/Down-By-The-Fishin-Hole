@@ -20,7 +20,7 @@ public abstract class FishType {
 		if (initialFishCount < 0) {
 			throw new IllegalArgumentException("Initial number of fish cannot be negative");
 		}
-		this.numberOfFishInSchool = initialFishCount;
+		this.setNumberOfFishInSchool(initialFishCount);
 	}
 
 	/**
@@ -43,10 +43,10 @@ public abstract class FishType {
 		if (numberOfFishToRemove < 0) {
 			throw new IllegalArgumentException("Number of fish to remove cannot be negative");
 		}
-		if (numberOfFishToRemove > this.numberOfFishInSchool) {
+		if (numberOfFishToRemove > this.getNumberOfFishInSchool()) {
 			throw new IllegalArgumentException("Cannot remove more fish than available in the school");
 		}
-		this.numberOfFishInSchool -= numberOfFishToRemove;
+		this.setNumberOfFishInSchool(this.getNumberOfFishInSchool() - numberOfFishToRemove);
 	}
 
 	/**
@@ -64,6 +64,15 @@ public abstract class FishType {
 	public abstract int costToFish();
 
 	/**
+	 * Gets the number of fish left in the school.
+	 * 
+	 * @return The number of fish left in the school.
+	 */
+	public int getFishLeft() {
+		return this.getNumberOfFishInSchool();
+	}
+
+	/**
 	 * Provides a string representation of this FishType that returns the number of
 	 * fish in a school.
 	 * 
@@ -71,6 +80,15 @@ public abstract class FishType {
 	 */
 	@Override
 	public String toString() {
-		return "Number of Fish in School: " + this.numberOfFishInSchool;
+		return "Number of Fish in School: " + this.getNumberOfFishInSchool();
+	}
+
+	/**
+	 * Sets the number of fish in the school.
+	 * 
+	 * @param numberOfFishInSchool The number of fish to set in the school.
+	 */
+	public void setNumberOfFishInSchool(int numberOfFishInSchool) {
+		this.numberOfFishInSchool = numberOfFishInSchool;
 	}
 }

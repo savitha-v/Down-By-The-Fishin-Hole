@@ -40,11 +40,12 @@ public class Angler {
 	/**
 	 * Pays the specified number of money units to fish at the fishing hole.
 	 * 
-	 * @param moneyUnitsToPay The number of money units to be paid.
+	 * @param moneyUnitsToPay The number of money units to be paid for fishing.
+	 * @return The number of fish caught during the fishing process.
 	 * @throws IllegalArgumentException if moneyUnitsToPay is negative or exceeds
 	 *                                  moneyUnitsLeft.
 	 */
-	public void payToFish(int moneyUnitsToPay) {
+	public int payToFish(int moneyUnitsToPay) {
 		if (moneyUnitsToPay < 0) {
 			throw new IllegalArgumentException("Invalid amount to pay for fishing: " + moneyUnitsToPay);
 		}
@@ -52,6 +53,9 @@ public class Angler {
 			throw new IllegalArgumentException("Not enough money units left to pay for fishing: " + moneyUnitsToPay);
 		}
 		this.moneyUnitsLeft -= moneyUnitsToPay;
+		int fishCaught = this.numberOfFishCaught;
+
+		return fishCaught;
 	}
 
 	/**

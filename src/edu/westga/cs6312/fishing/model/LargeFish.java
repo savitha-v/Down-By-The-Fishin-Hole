@@ -39,6 +39,11 @@ public class LargeFish extends FishType {
 		super.removeFish(numberOfFishCaught);
 		return numberOfFishCaught;
 	}
+	
+    @Override
+    public int getFishLeft() {
+        return this.getNumberOfFishInSchool();
+    }
 
 	/**
 	 * Provides a string representation of this LargeFish describing the number of

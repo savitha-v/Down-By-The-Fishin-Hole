@@ -70,24 +70,32 @@ public class FishingHole {
 	}
 
 	/**
-	 * Simulates a fishing attempt in this fishing hole. The success of the attempt
-	 * depends on the presence and type of fish in the hole. If a fish type is
-	 * present, it calculates the number of fish caught based on the specific fish
-	 * type's catch logic. After a successful catch, the fish type in the hole is
-	 * set to null, simulating that all fish of that type have been caught and
-	 * removed from the hole.
-	 *
-	 * @return the number of fish caught during the fishing attempt. Returns 0 if no
-	 *         fish are present or if the catch was unsuccessful.
+	 * Simulates a fishing attempt in this fishing hole.
+	 * 
+	 * @return the number of money units paid by the angler and the number of fish
+	 *         caught during the fishing attempt. Returns 0 if no fish are present
+	 *         or if the catch was unsuccessful.
 	 */
 	public int fish() {
 		if (this.currentFishType == null) {
 			System.out.println("No fish available to catch at this location.");
 			return 0;
-		} else {
-			int fishCaught = this.currentFishType.catchFish();
+		}
+
+		int moneyPaid = this.currentFishType.costToFish();
+		int fishCaught = this.currentFishType.catchFish();
+
+		if (fishCaught > 0) {
+			int fishLeft = this.currentFishType.getNumberOfFishInSchool();
+			fishLeft -= fishCaught;
+			this.currentFishType.setNumberOfFishInSchool(fishLeft);
+		}
+
+		if (moneyPaid > 0) {
 			this.currentFishType = null;
-			return fishCaught;
+			return moneyPaid;
+		} else {
+			return 0;
 		}
 	}
 
