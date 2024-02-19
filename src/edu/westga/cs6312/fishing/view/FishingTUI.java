@@ -129,27 +129,4 @@ public class FishingTUI {
 		System.out.println("Moved to new fishing hole:");
 		this.describeCurrentFishingHole();
 	}
-
-	private void fishFishingHole() {
-		// Assuming `payToFish` method exists in Angler class and deducts a predefined
-		// cost,
-		// returning the amount deducted. This method should also handle checking if the
-		// angler has enough money.
-		if (this.currentGameBoard.getAngler().getMoneyUnitsLeft() > 0) {
-			int cost = this.currentGameBoard.getAngler().payToFish();
-			System.out.println("The angler has paid " + cost + " money units to fish.");
-
-			// Assuming a `fish` method in FishingHole that decreases the fish count and
-			// returns the number of fish caught
-			int fishCaught = this.currentGameBoard.getCurrentFishingHole().fish();
-			System.out.println("The angler caught " + fishCaught + " fish.");
-
-			// Updating the display message to show the number of fish left in the hole
-			// after fishing
-			System.out.println("Number of fish left in the current fishing hole's school: "
-					+ this.currentGameBoard.getCurrentFishingHole().getNumberOfFishInSchool());
-		} else {
-			System.out.println("The angler cannot afford to fish.");
-		}
-	}
 }
