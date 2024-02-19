@@ -9,8 +9,8 @@ package edu.westga.cs6312.fishing.model;
  * @version 02/18/2024
  */
 public class GameBoard {
-	private FishingHole[] fishingHoles;
-	private Angler angler;
+	private FishingHole[] fishingHolesArray;
+	private Angler currentAngler;
 	private int currentLocation;
 
 	/**
@@ -24,11 +24,11 @@ public class GameBoard {
 	 * Sets up the fishing holes on the board and initializes the angler's location.
 	 */
 	private void setupFishingHoles() {
-		this.fishingHoles = new FishingHole[10];
-		for (int holeNumber = 0; holeNumber < this.fishingHoles.length; holeNumber++) {
-			this.fishingHoles[holeNumber] = new FishingHole(holeNumber);
+		this.fishingHolesArray = new FishingHole[10];
+		for (int holeNumber = 0; holeNumber < this.fishingHolesArray.length; holeNumber++) {
+			this.fishingHolesArray[holeNumber] = new FishingHole(holeNumber);
 		}
-		this.angler = new Angler();
+		this.currentAngler = new Angler();
 		this.currentLocation = 0;
 	}
 
@@ -38,7 +38,7 @@ public class GameBoard {
 	 * @return The angler on the game board.
 	 */
 	public Angler getAngler() {
-		return this.angler;
+		return this.currentAngler;
 	}
 
 	/**
@@ -47,7 +47,7 @@ public class GameBoard {
 	 * @return The current fishing hole.
 	 */
 	public FishingHole getCurrentFishingHole() {
-		return this.fishingHoles[this.currentLocation];
+		return this.fishingHolesArray[this.currentLocation];
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class GameBoard {
 	 */
 	@Override
 	public String toString() {
-		return "Angler's Status: " + this.angler.toString() + "\nCurrent Location: Fishing Hole "
+		return "Angler's Status: " + this.currentAngler.toString() + "\nCurrent Location: Fishing Hole "
 				+ this.currentLocation;
 	}
 }
