@@ -46,6 +46,6 @@ public class SmallFish extends FishType {
 	 */
 	@Override
 	public String toString() {
-		return "Number of Small Fish in School: " + super.getNumberOfFishInSchool();
+		return "small fish with " + super.getNumberOfFishInSchool() + " fish in the school.";
 	}
 }

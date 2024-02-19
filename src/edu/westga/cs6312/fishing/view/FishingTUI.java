@@ -16,10 +16,10 @@ public class FishingTUI {
 	/**
 	 * Constructor for FishingTUI.
 	 * 
-	 * @param gameBoard the game board to interact with
+	 * @param interactionGameBoard the game board to interact with
 	 */
-	public FishingTUI(GameBoard gameBoard) {
-		this.currentGameBoard = gameBoard;
+	public FishingTUI(GameBoard interactionGameBoard) {
+		this.currentGameBoard = interactionGameBoard;
 		this.userInput = new Scanner(System.in);
 	}
 
@@ -78,20 +78,20 @@ public class FishingTUI {
 	 * Describes the current fishing hole.
 	 */
 	private void describeCurrentFishingHole() {
-		System.out.println("Current Fishing Hole: " + this.currentGameBoard.getCurrentFishingHole().toString());
+		System.out.println(this.currentGameBoard.getCurrentFishingHole().toString());
 	}
 
 	/**
 	 * Describes the angler.
 	 */
 	private void describeAngler() {
-		System.out.println("Angler: " + this.currentGameBoard.getAngler().toString());
+		System.out.println(this.currentGameBoard.getAngler().toString());
 	}
 
 	/**
 	 * Describes the game board.
 	 */
 	private void describeGameBoard() {
-		System.out.println("Game Board: " + this.currentGameBoard.toString());
+		System.out.println(this.currentGameBoard.toString());
 	}
 }

@@ -57,7 +57,16 @@ public class GameBoard {
 	 */
 	@Override
 	public String toString() {
-		return "Angler's Status: " + this.currentAngler.toString() + "\nCurrent Location: Fishing Hole "
-				+ this.currentLocation;
+		StringBuilder boardDescription = new StringBuilder();
+		for (int holeNumber = 0; holeNumber < this.fishingHolesArray.length; holeNumber++) {
+			boardDescription.append("Fishing hole at [").append(holeNumber).append("] containing ");
+			if (this.fishingHolesArray[holeNumber].getCurrentFishType() == null) {
+				boardDescription.append("no fish.");
+			} else {
+				boardDescription.append(this.fishingHolesArray[holeNumber].getCurrentFishType().toString());
+			}
+			boardDescription.append("\n");
+		}
+		return boardDescription.toString();
 	}
 }

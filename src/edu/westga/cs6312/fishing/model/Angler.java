@@ -75,6 +75,6 @@ public class Angler {
 	 */
 	@Override
 	public String toString() {
-		return "Angler with " + this.moneyUnitsLeft + " money units and " + this.numberOfFishCaught + " fish";
+		return "Angler with " + this.moneyUnitsLeft + " money units and " + this.numberOfFishCaught + " fish.";
 	}
 }

@@ -70,6 +70,12 @@ public class FishingHole {
 	 */
 	@Override
 	public String toString() {
-		return "FishingHole [currentFishType=" + this.currentFishType + ", location=" + this.location + "]";
+		String fishDescription;
+		if (this.currentFishType == null) {
+			fishDescription = "no fish";
+		} else {
+			fishDescription = this.currentFishType.toString();
+		}
+		return "Fishing Hole at [" + this.location + "] containing " + fishDescription;
 	}
 }
