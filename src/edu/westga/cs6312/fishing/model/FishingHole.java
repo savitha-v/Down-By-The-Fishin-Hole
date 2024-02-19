@@ -37,12 +37,18 @@ public class FishingHole {
 	}
 
 	/**
-	 * Creates and returns a SmallFish object.
+	 * Adds a random fish type (SmallFish or LargeFish) to the fishing hole with
+	 * equal probability.
 	 * 
-	 * @return A SmallFish object.
+	 * @return The FishType object added to the fishing hole.
 	 */
 	private FishType addFish() {
-		return new SmallFish();
+		Random randomGenerator = new Random();
+		if (randomGenerator.nextBoolean()) {
+			return new SmallFish();
+		} else {
+			return new LargeFish();
+		}
 	}
 
 	/**
