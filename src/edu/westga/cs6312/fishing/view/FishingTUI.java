@@ -41,6 +41,9 @@ public class FishingTUI {
 			case 3:
 				this.describeGameBoard();
 				break;
+			case 4:
+				this.move();
+				break;
 			case 9:
 				System.out.println("Thank you for playing!");
 				break;
@@ -58,6 +61,7 @@ public class FishingTUI {
 		System.out.println("1 - Describe current fishing hole");
 		System.out.println("2 - Describe angler");
 		System.out.println("3 - Describe game board");
+		System.out.println("4 - Move");
 		System.out.println("9 - Quit the application");
 	}
 
@@ -93,5 +97,32 @@ public class FishingTUI {
 	 */
 	private void describeGameBoard() {
 		System.out.println(this.currentGameBoard.toString());
+	}
+
+	/**
+	 * Handles the logic for moving the angler in the game. The user is prompted to
+	 * choose a direction to move (either up or down) within the game board.
+	 * Depending on the user's choice, the angler is moved accordingly, and the new
+	 * current fishing hole's description is displayed. If the user selects an
+	 * invalid option, an error message is shown, and no movement occurs.
+	 */
+	private void move() {
+		System.out.println("Choose a direction to move:");
+		System.out.println("1 - Up");
+		System.out.println("2 - Down");
+		int choice = this.getIntegerFromUser("Your choice: ");
+		switch (choice) {
+		case 1:
+			this.currentGameBoard.moveUp();
+			break;
+		case 2:
+			this.currentGameBoard.moveDown();
+			break;
+		default:
+			System.out.println("Invalid direction, please try again.");
+			return;
+		}
+		System.out.println("Moved to new fishing hole:");
+		this.describeCurrentFishingHole();
 	}
 }
