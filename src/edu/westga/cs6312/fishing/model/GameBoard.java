@@ -21,6 +21,10 @@ public class GameBoard {
 		this.setupFishingHoles();
 	}
 
+	/**
+	 * Sets up the fishing holes for the game board. Initializes the angler, creates
+	 * FishingHole objects, and assigns them to the fishingHolesArray.
+	 */
 	private void setupFishingHoles() {
 		this.currentAngler = new Angler();
 		this.fishingHolesArray = new FishingHole[NUMBER_OF_FISHINGHOLES];
