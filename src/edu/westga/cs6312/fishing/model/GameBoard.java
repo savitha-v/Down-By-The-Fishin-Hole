@@ -51,6 +51,33 @@ public class GameBoard {
 	}
 
 	/**
+	 * Moves the current angler to the FishingHole that is one above the current
+	 * location. If the angler is currently at the top-most FishingHole (position
+	 * 0), then this method will move the player to the bottom-most FishingHole (to
+	 * simulate a world that 'wraps').
+	 */
+	public void moveUp() {
+		if (this.currentLocation == 0) {
+			this.currentLocation = this.fishingHolesArray.length - 1;
+		} else {
+			this.currentLocation--;
+		}
+	}
+
+	/**
+	 * Moves the current angler one FishingHole down. If the angler is currently at
+	 * the bottom-most FishingHole, then this method will move the player to the top
+	 * FishingHole (to simulate a world that 'wraps').
+	 */
+	public void moveDown() {
+		if (this.currentLocation == this.fishingHolesArray.length - 1) {
+			this.currentLocation = 0;
+		} else {
+			this.currentLocation++;
+		}
+	}
+
+	/**
 	 * Returns a string representation of the game board.
 	 * 
 	 * @return A string detailing the angler's status and current location.
