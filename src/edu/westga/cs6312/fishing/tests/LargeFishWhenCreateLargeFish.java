@@ -17,7 +17,7 @@ public class LargeFishWhenCreateLargeFish {
 	 */
 	@Test
 	public void shouldConfirmConstructorAndToString() {
-		LargeFish largeFish = new LargeFish();
-		assertEquals("large fish with 50 fish in the school.", largeFish.toString());
+		LargeFish newLargeFish = new LargeFish();
+		assertEquals("large fish with 50 fish in the school.", newLargeFish.toString());
 	}
 }
