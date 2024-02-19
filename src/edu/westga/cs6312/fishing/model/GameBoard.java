@@ -94,6 +94,9 @@ public class GameBoard {
 			}
 			boardDescription.append("\n");
 		}
+		boardDescription.append("The Angler with ").append(this.currentAngler.getMoneyUnitsLeft())
+				.append(" money units and ").append(this.currentAngler.getNumberOfFishCaught())
+				.append(" fish is at fishing hole [").append(this.currentLocation).append("].");
 		return boardDescription.toString();
 	}
 }
