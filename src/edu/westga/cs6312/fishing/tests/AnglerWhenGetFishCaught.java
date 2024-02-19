@@ -10,14 +10,14 @@ import edu.westga.cs6312.fishing.model.Angler;
  * @author Savitha Venkatesh
  * @version 02/18/2024
  */
-public class AnglerWhenGetMoney {
+public class AnglerWhenGetFishCaught {
 
 	/**
-	 * Test the getMoneyUnitsLeft method for Angler.
+	 * Test the getNumberOfFishCaught method for Angler.
 	 */
 	@Test
-	public void shouldConfirmCorrectMoneyUnits() {
+	public void shouldConfirmCorrectNumberOfFishCaught() {
 		Angler newAngler = new Angler();
-		assertEquals(100, newAngler.getMoneyUnitsLeft());
+		assertEquals(0, newAngler.getNumberOfFishCaught());
 	}
 }
