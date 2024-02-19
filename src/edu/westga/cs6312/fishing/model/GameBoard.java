@@ -9,62 +9,55 @@ package edu.westga.cs6312.fishing.model;
  * @version 02/18/2024
  */
 public class GameBoard {
-	private static final int NUMBER_OF_FISHINGHOLES = 10;
-	private FishingHole[] fishingHolesArray;
-	private Angler currentAngler;
+	private FishingHole[] fishingHoles;
+	private Angler angler;
 	private int currentLocation;
 
 	/**
-	 * Constructs a GameBoard object and sets up the game board for play.
+	 * Constructs a GameBoard object, initializing the game board for play.
 	 */
 	public GameBoard() {
 		this.setupFishingHoles();
 	}
 
 	/**
-	 * Sets up the fishing holes for the game board. Initializes the angler, creates
-	 * FishingHole objects, and assigns them to the fishingHolesArray.
+	 * Sets up the fishing holes on the board and initializes the angler's location.
 	 */
 	private void setupFishingHoles() {
-		this.currentAngler = new Angler();
-		this.fishingHolesArray = new FishingHole[NUMBER_OF_FISHINGHOLES];
-		for (int holeNumber = 0; holeNumber < NUMBER_OF_FISHINGHOLES; holeNumber++) {
-			this.fishingHolesArray[holeNumber] = new FishingHole(holeNumber);
+		this.fishingHoles = new FishingHole[10];
+		for (int holeNumber = 0; holeNumber < this.fishingHoles.length; holeNumber++) {
+			this.fishingHoles[holeNumber] = new FishingHole(holeNumber);
 		}
+		this.angler = new Angler();
 		this.currentLocation = 0;
 	}
 
 	/**
 	 * Returns the Angler object.
 	 * 
-	 * @return The Angler object.
+	 * @return The angler on the game board.
 	 */
 	public Angler getAngler() {
-		return this.currentAngler;
+		return this.angler;
 	}
 
 	/**
-	 * Returns the current location of the Angler in the game.
+	 * Returns the current FishingHole where the Angler is located.
 	 * 
-	 * @return The current location of the Angler.
+	 * @return The current fishing hole.
 	 */
-	public int getCurrentLocation() {
-		return this.currentLocation;
+	public FishingHole getCurrentFishingHole() {
+		return this.fishingHoles[this.currentLocation];
 	}
 
 	/**
-	 * Returns a string representation of this GameBoard.
+	 * Returns a string representation of the game board.
 	 * 
-	 * @return A string representation of this GameBoard.
+	 * @return A string detailing the angler's status and current location.
 	 */
 	@Override
 	public String toString() {
-		String gameBoard = "GameBoard with " + NUMBER_OF_FISHINGHOLES + " fishing holes\n" + "Current Angler location: "
-				+ this.currentLocation + "\n";
-		for (int holeNumber = 0; holeNumber < NUMBER_OF_FISHINGHOLES; holeNumber++) {
-			gameBoard += "FishingHole " + holeNumber + ": " + this.fishingHolesArray[holeNumber] + "\n";
-		}
-		return gameBoard;
+		return "Angler's Status: " + this.angler.toString() + "\nCurrent Location: Fishing Hole "
+				+ this.currentLocation;
 	}
-
 }
